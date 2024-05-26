@@ -42,6 +42,10 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
     role,
   } = req.body;
 
+  if (!role && !password && !email && !firstName && !lastName) {
+    return next(new ErrorHandler("Please enter all fields", 400));
+  }
+
   if (!isStrongPassword(password)) {
     return next(
       new ErrorHandler(
