@@ -54,6 +54,10 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   if (password !== confirmPassword)
     return next(new ErrorHandler("Confirm Password does not match", 400));
 
+  if (mobile && mobile.length !== 10) {
+    return next(new ErrorHandler("Mobile number must be of 10 digits", 400));
+  }
+
   const user_exist = await User.findOne({
     email: { $regex: new RegExp(email, "i") },
   });
