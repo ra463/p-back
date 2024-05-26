@@ -32,7 +32,6 @@ const schema = new mongoose.Schema(
     mobile: {
       type: Number,
       required: [true, "Please enter your mobile number"],
-      validate: [validator.isMobilePhone, "Please enter valid mobile number"],
       maxLength: [10, "Mobile number must be of 10 digits"],
       minLength: [10, "Mobile number must be of 10 digits"],
       trim: true,
