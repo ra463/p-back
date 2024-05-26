@@ -32,18 +32,13 @@ const schema = new mongoose.Schema(
     mobile: {
       type: Number,
       required: [true, "Please enter your mobile number"],
-      maxLength: [10, "Mobile number must be of 10 digits"],
-      minLength: [10, "Mobile number must be of 10 digits"],
       trim: true,
     },
     role: {
       type: String,
       required: [true, "Please enter your role"],
       enum: ["seller", "buyer"],
-    },
-    temp_code: {
-      type: String,
-    },
+    }
   },
   {
     timestamps: true,
