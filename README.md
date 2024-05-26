@@ -29,6 +29,8 @@ CLOUDINARY_API_SECRET="Your cloudinary Secret"
 
 ```
 
+To connect it with client just the link in `cors`in `app.js` file
+
 Install all the dependencies by running the command `npm install`
 
 To run this project simply run the command `npm run dev`
