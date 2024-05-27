@@ -66,9 +66,13 @@ exports.registerProperty = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getAllProperties = catchAsyncError(async (req, res, next) => {
-  const { city, state, pincode, totalRooms, resultPerPage, currentPage } =
+  let { city, state, pincode, totalRooms, resultPerPage, currentPage } =
     req.query;
   const query = {};
+
+  if (state === "All") {
+    state = "";
+  }
 
   if (city) {
     const cityExp = new RegExp(city, "i");
